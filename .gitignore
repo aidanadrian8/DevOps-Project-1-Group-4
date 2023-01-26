@@ -1,0 +1,6 @@
+.DS_Store
+.vs/*
+.vscode/*
+devops-project/.vs/*
+devops-project/devops-project/bin/*
+devops-project/devops-project/obj/*
