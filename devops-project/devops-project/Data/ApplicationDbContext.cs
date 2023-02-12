@@ -12,6 +12,17 @@ namespace devops_project.Data
 
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
+
         public DbSet<AppUser> AppUser { get; set; }
+
+        public DbSet<Plant> Plant { get; set; }
+
+        public DbSet<Part> Part { get; set; }
+
+        public DbSet<Vendor> Vendor { get; set; }
     }
 }
