@@ -41,6 +41,24 @@ main {
     height: 100%;
     justify-content:space-evenly;
 }
+.sidebar-item
+{
+    width: 100%;
+    padding:2em;
+    text-align: center;
+}
+.sidebar-item:first-child :hover
+{
+    transform:rotate(-180deg) !important;
+}
+.sidebar-item:last-child
+{
+    margin-top:auto;
+}
+.sidebar-item:first-child
+{
+    transform:rotate(-180deg) !important;
+}
 .link-text {
     display:none;
     margin-left: 1rem;
@@ -58,11 +76,7 @@ main {
 {
     display:inline-block;
 }
-.sidebar:hover .sidebar-item-arrow {
-    transform:rotate(-180deg) !important;
-       
-    
-}
+
 
 .container
 {

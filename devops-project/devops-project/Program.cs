@@ -3,7 +3,7 @@
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDBContext
+
 
 var app = builder.Build();
 
