@@ -55,10 +55,7 @@ main {
 {
     margin-top:auto;
 }
-.sidebar-item:first-child
-{
-    transform:rotate(-180deg) !important;
-}
+
 .link-text {
     display:none;
     margin-left: 1rem;
