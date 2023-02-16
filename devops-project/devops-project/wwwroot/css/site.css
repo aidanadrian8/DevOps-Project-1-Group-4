@@ -47,7 +47,7 @@ main {
     padding:2em;
     text-align: center;
 }
-.sidebar-item:first-child :hover
+.sidebar-item:first-child 
 {
     transform:rotate(-180deg) !important;
 }
@@ -65,15 +65,24 @@ main {
     color:white;
 
  }*/
-.sidebar:hover{
-    width:10rem;
+.sidebar:hover {
+    width:11rem;
     
 }
 .sidebar:hover .link-text
 {
     display:inline-block;
 }
-
+.sidebar:hover .sidebar-item-arrow {
+    transform:rotate(-180deg) !important;
+       
+    
+}
+.sidebar-item-arrow{
+    width: 100%;
+    padding:2em;
+    text-align: center;
+}
 
 .container
 {
