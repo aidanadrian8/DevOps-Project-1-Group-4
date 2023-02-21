@@ -45,9 +45,23 @@ namespace devops_project.Models
         public string ImagePath { get; set; }
 
         [Required]
+        [NotMapped]
         public Vendor Vendor { get; set; }
 
         [Required]
+        [NotMapped]
         public Plant Plant { get; set; }
+
+        public Part(int vendorId, int plantId, string sku, string name, string specs, decimal salePrice, decimal manufacturingPrice, string imagePath)
+        {
+            VendorId = vendorId;
+            PlantId = plantId;
+            SKU = sku;
+            Name = name;
+            Specs = specs;
+            SalePrice = salePrice;
+            ManufacturingPrice = manufacturingPrice;
+            ImagePath = imagePath;
+        }
     }
 }
