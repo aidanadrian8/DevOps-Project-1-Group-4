@@ -35,36 +35,22 @@
                     <span class="parts-icon"><i class="fa-solid fa-industry"></i></span>
                 </a>
             </li>
-            <li class="sidebar-item">
-                <a href="#" class="user-link">
-                    <span class="link-text">Login</span>
-                    <span class="parts-icon"><i class="fa-solid fa-user"></i></span>
-                </a>
-            </li>
+            <!-- Example split danger button -->
+            <div class="btn-group sidebar-item">
+                <a asp-controller="Account" asp-action="Register" class="user-link"><button type="button" class="btn btn-primary">Sign up</button></a>
+            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split login-button-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Login</a></li>
+            </ul>
+            </div>
+
         </ul>
 
     </nav>
     <div class="container">
         <main role="main" class="pb-3">
-            <p>
-                Հայերեն Shqip ‫العربية Български Català 中文简体 Hrvatski Česky Dansk Nederlands English Eesti Filipino Suomi Français ქართული Deutsch Ελληνικά ‫עברית हिन्दी Magyar Indonesia Italiano Latviski Lietuviškai македонски Melayu Norsk Polski Português Româna Pyccкий Српски Slovenčina Slovenščina Español Svenska ไทย Türkçe Українська Tiếng Việt
-                Lorem Ipsum
-                "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-                "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dignissim erat ac euismod ultricies. Aliquam ac lacus quam. In dolor libero, accumsan id malesuada non, porttitor sed nunc. Etiam pulvinar felis at bibendum euismod. Praesent hendrerit egestas lobortis. Curabitur ac arcu vitae lacus imperdiet facilisis sed et eros. Maecenas ultricies hendrerit ultricies. Mauris condimentum placerat nisl vel eleifend. Ut consectetur massa diam, eu iaculis tortor volutpat semper.
-
-                Sed venenatis mi non urna volutpat, a maximus tellus porttitor. Aenean risus purus, mollis ac nibh auctor, eleifend laoreet elit. In vehicula eros turpis, sit amet gravida felis accumsan eu. Fusce euismod volutpat nibh. Pellentesque eget interdum purus. Suspendisse condimentum ante sed lectus pretium viverra. Suspendisse efficitur nibh eu lectus ultricies lobortis. Vivamus lacus justo, aliquet et quam id, rhoncus fringilla elit. Vestibulum sodales magna sed hendrerit auctor.
-
-                Suspendisse arcu mauris, eleifend non scelerisque vel, vehicula eget ante. Aenean sed arcu et risus aliquam sodales quis eget turpis. Nam ac nunc ut lacus semper tincidunt. Proin lobortis maximus magna sed ullamcorper. Proin convallis orci sed ex semper ultrices. Sed ac ex vulputate leo hendrerit auctor. Nulla vehicula lectus a ante posuere, et hendrerit libero molestie. Vivamus vitae rhoncus mi. Morbi nisi elit, maximus quis sem et, rhoncus gravida augue. Vestibulum ac leo at nibh maximus fringilla. Donec mauris turpis, tincidunt vitae sapien eu, congue suscipit nulla. In nulla neque, pharetra et varius id, rutrum convallis ante. Quisque consequat risus in dui rhoncus, et volutpat lacus accumsan. Pellentesque varius blandit nunc quis bibendum. Donec at nibh massa.
-
-                In blandit nunc vitae finibus interdum. Cras eget malesuada ipsum. Sed justo lacus, condimentum quis gravida ac, aliquet ut nisi. Phasellus lacinia elit eget est hendrerit, sed laoreet metus ornare. Ut laoreet faucibus mi a vestibulum. Nullam massa magna, imperdiet vitae mi id, tincidunt ultrices elit. Proin vulputate, eros sit amet placerat tristique, est lectus efficitur nulla, et varius neque neque nec nibh. In aliquet tellus nibh, in consectetur mi auctor ac. Donec commodo, nunc eget mattis bibendum, lectus velit pretium diam, a finibus sapien sem nec odio. Etiam quis pellentesque leo, ac auctor quam. Nunc semper ipsum magna, quis efficitur massa tristique quis.
-
-                Duis arcu tortor, dignissim a elit et, efficitur efficitur nisl. Mauris interdum justo mauris, non maximus elit commodo id. Sed hendrerit tellus nec velit suscipit viverra. Nullam diam velit, interdum sed ex sed, sodales sodales ante. Nullam tristique pulvinar magna, sed rutrum est hendrerit nec. Donec volutpat dolor ac magna varius, ac dictum elit bibendum. Fusce ac semper tortor. Quisque iaculis egestas pulvinar. Praesent pharetra bibendum odio, sollicitudin cursus erat dapibus a. Proin dapibus lorem vitae magna pretium sollicitudin ut sit amet nulla. Vivamus risus eros, sollicitudin eu erat non, pretium varius orci. Aenean ut justo justo. Proin interdum ipsum neque. Pellentesque sit amet ex turpis. Etiam sit amet mi ornare, condimentum lorem id, facilisis purus. Vestibulum gravida posuere viverra.
-                Generated 5 paragraphs, 477 words, 3216 bytes of Lorem Ipsum
-                help@lipsum.com
-                Privacy Policy
-            </p>
             @RenderBody()
         </main>
 

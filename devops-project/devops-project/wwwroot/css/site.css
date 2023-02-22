@@ -60,6 +60,9 @@ main {
     display:none;
     margin-left: 1rem;
 }
+.login-button-dropdown {
+    display:none;
+}
 /*.link-text:hover {
     display:inline-block;
     color:white;
@@ -70,6 +73,10 @@ main {
     
 }
 .sidebar:hover .link-text
+{
+    display:inline-block;
+}
+.sidebar:hover .login-button-dropdown
 {
     display:inline-block;
 }
