@@ -41,6 +41,21 @@ main {
     height: 100%;
     justify-content:space-evenly;
 }
+.sidebar-item
+{
+    width: 100%;
+    padding:2em;
+    text-align: center;
+}
+.sidebar-item:first-child 
+{
+    transform:rotate(-180deg) !important;
+}
+.sidebar-item:last-child
+{
+    margin-top:auto;
+}
+
 .link-text {
     display:none;
     margin-left: 1rem;
@@ -50,8 +65,8 @@ main {
     color:white;
 
  }*/
-.sidebar:hover{
-    width:10rem;
+.sidebar:hover {
+    width:11rem;
     
 }
 .sidebar:hover .link-text
@@ -62,6 +77,11 @@ main {
     transform:rotate(-180deg) !important;
        
     
+}
+.sidebar-item-arrow{
+    width: 100%;
+    padding:2em;
+    text-align: center;
 }
 
 .container
