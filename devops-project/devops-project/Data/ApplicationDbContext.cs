@@ -22,7 +22,5 @@ namespace devops_project.Data
         public DbSet<Plant> Plant { get; set; }
 
         public DbSet<Part> Part { get; set; }
-
-        public DbSet<Vendor> Vendor { get; set; }
     }
 }

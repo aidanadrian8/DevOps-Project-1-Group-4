@@ -17,6 +17,33 @@ namespace devops_project.Models
         [MaxLength(50)]
         public string Location { get; set; }
 
+        [MaxLength(50)]
         public ICollection<Part> Parts { get; set; }
+
+        public Plant(string name, string location)
+        {
+            Name = name;
+            Location = location;
+            Parts = new List<Part>();
+        }
+
+        public List<string> GetPartNames()
+        {
+            return Parts.Select(x => x.Name).ToList();
+        }
+
+        public List<string> GetPartNames(List<string> skus)
+        {
+            List<string> partNames = new List<string>();
+
+            foreach(string sku in skus)
+            {
+                string name = Parts.Where(x => x.SKU == sku).Select(x => x.Name).FirstOrDefault();
+
+                if(name != null) partNames.Add(name);
+            }
+
+            return partNames;
+        }
     }
 }
