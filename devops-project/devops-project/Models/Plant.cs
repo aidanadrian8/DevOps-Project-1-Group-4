@@ -40,8 +40,7 @@ namespace devops_project.Models
             {
                 string name = Parts.Where(x => x.SKU == sku).Select(x => x.Name).FirstOrDefault();
 
-                if(name != null)
-                    partNames.Add(name);
+                if(name != null) partNames.Add(name);
             }
 
             return partNames;

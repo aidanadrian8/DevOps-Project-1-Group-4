@@ -10,9 +10,6 @@ namespace devops_project.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
-        [ForeignKey("Vendor")]
-        public int VendorId { get; set; }
 
         [Required]
         [ForeignKey("Plant")]
@@ -44,17 +41,13 @@ namespace devops_project.Models
         [Required]
         public string ImagePath { get; set; }
 
-        [Required]
-        [NotMapped]
-        public Vendor Vendor { get; set; }
 
         [Required]
         [NotMapped]
         public Plant Plant { get; set; }
 
-        public Part(int vendorId, int plantId, string sku, string name, string specs, decimal salePrice, decimal manufacturingPrice, string imagePath)
+        public Part(int plantId, string sku, string name, string specs, decimal salePrice, decimal manufacturingPrice, string imagePath)
         {
-            VendorId = vendorId;
             PlantId = plantId;
             SKU = sku;
             Name = name;
