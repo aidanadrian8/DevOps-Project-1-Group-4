@@ -110,7 +110,8 @@ namespace devops_project.Controllers
         public async Task<IActionResult> LogOff()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            System.Diagnostics.Debug.WriteLine("Hello");
+            return RedirectToAction("Login", "Account");
         }
 
     }
