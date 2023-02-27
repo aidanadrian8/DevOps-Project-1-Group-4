@@ -2,6 +2,7 @@
 using devops_project.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace devops_project.Controllers
 {
@@ -12,13 +13,18 @@ namespace devops_project.Controllers
         public ActionResult Index()
         {
             List<Part> parts = dbContext.Part.ToList();
-            return View();
+            return View(parts);
         }
 
         // GET: PartController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var part = dbContext.Part.Find(id);
+            if(part != null)
+            {
+                return View(part);
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: PartController/Create
@@ -34,12 +40,12 @@ namespace devops_project.Controllers
         {
             if (ModelState.IsValid)
             {
-                var part = new Part(int.Parse(collection["plantId"]), collection["sku"], collection["name"], collection["specs"], Decimal.Parse(collection["salePrice"]), Decimal.Parse(collection["manufacturingPrice"]), collection["imagePath"]);
+                Part part = new Part(int.Parse(collection["plantId"]), collection["sku"], collection["name"], collection["specs"], Decimal.Parse(collection["salePrice"]), Decimal.Parse(collection["manufacturingPrice"]), collection["imagePath"]);
                 var result = dbContext.Part.AddAsync(part);
 
                 if (result.IsCompletedSuccessfully)
                 {
-                    dbContext.SaveChangesAsync();
+                    await dbContext.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -50,43 +56,45 @@ namespace devops_project.Controllers
         // GET: PartController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var part = dbContext.Part.Find(id);
+            if (part != null)
+            {
+                return View(part);
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: PartController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, IFormCollection collection)
         {
-            try
+            var part = dbContext.Part.Find(id);
+            dbContext.Part.Remove(part);
+            if (part != null)
             {
-                return RedirectToAction(nameof(Index));
+                part = new Part(int.Parse(collection["plantId"]), collection["sku"], collection["name"], collection["specs"], Decimal.Parse(collection["salePrice"]), Decimal.Parse(collection["manufacturingPrice"]), collection["imagePath"]);
+                var result = dbContext.Part.AddAsync(part);
+                if (result.IsCompletedSuccessfully)
+                {
+                    dbContext.SaveChangesAsync();
+                }
             }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: PartController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: PartController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id)
         {
-            try
+            var part = dbContext.Part.Find(id);
+            if (part != null)
             {
-                return RedirectToAction(nameof(Index));
+                dbContext.Part.Remove(part);
+                dbContext.SaveChanges();
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }
