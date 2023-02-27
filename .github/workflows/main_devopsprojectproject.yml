@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - using: 'node16'
       - uses: actions/checkout@v2
 
       - name: Set up .NET Core
@@ -26,11 +27,13 @@ jobs:
         run: cd wwwroot
       
       - name: Setup Node.js
+        using: 'node16'
         uses: actions/setup-node@v2
         with:
           node-version: '18'
 
       - name: Cache dependencies
+        using: 'node16'
         uses: actions/cache@v2
         with:
           path: ~/.npm
