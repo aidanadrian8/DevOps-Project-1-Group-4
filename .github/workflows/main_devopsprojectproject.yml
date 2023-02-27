@@ -41,7 +41,7 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Leave wwwroot
-        run: cd wwwroot
+        run: cd ..
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
