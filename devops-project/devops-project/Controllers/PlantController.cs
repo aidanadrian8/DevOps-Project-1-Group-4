@@ -12,13 +12,18 @@ namespace devops_project.Controllers
         public ActionResult Index()
         {
             List<Plant> plants = dbContext.Plant.ToList();
-            return View();
+            return View(plants);
         }
 
         // GET: PlantController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var plant = dbContext.Plant.Find(id);
+            if (plant != null)
+            {
+                return View(plant);
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: PlantController/Create
@@ -30,58 +35,65 @@ namespace devops_project.Controllers
         // POST: PlantController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create(IFormCollection collection)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                Plant plant = new Plant(collection["name"], collection["location"]);
+                var result = dbContext.Plant.AddAsync(plant);
+
+                if (result.IsCompletedSuccessfully)
+                {
+                    await dbContext.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(collection);
         }
 
         // GET: PlantController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var plant = dbContext.Plant.Find(id);
+            if (plant != null)
+            {
+                return View(plant);
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: PlantController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, IFormCollection collection)
         {
-            try
+            var plant = dbContext.Plant.Find(id);
+            dbContext.Plant.Remove(plant);
+            if (plant != null)
             {
-                return RedirectToAction(nameof(Index));
+                plant = new Plant(collection["name"], collection["location"]);
+                var result = dbContext.Plant.AddAsync(plant);
+                if (result.IsCompletedSuccessfully)
+                {
+                    dbContext.SaveChangesAsync();
+                }
             }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: PlantController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: PlantController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id)
         {
-            try
+            var plant = dbContext.Plant.Find(id);
+            if (plant != null)
             {
-                return RedirectToAction(nameof(Index));
+                dbContext.Part.Remove(plant);
+                dbContext.SaveChanges();
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }
