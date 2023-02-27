@@ -41,11 +41,6 @@ namespace devops_project.Models
         [Required]
         public string ImagePath { get; set; }
 
-
-        [Required]
-        [NotMapped]
-        public Plant Plant { get; set; }
-
         public Part(int plantId, string sku, string name, string specs, decimal salePrice, decimal manufacturingPrice, string imagePath)
         {
             PlantId = plantId;

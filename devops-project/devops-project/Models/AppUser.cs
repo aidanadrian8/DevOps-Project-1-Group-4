@@ -7,7 +7,10 @@ namespace devops_project.Models
     {
         [ForeignKey("Plant")]
         public int PlantId { get; set; }
-        [NotMapped]
-        public Plant Plant { get; set; }
+
+        public AppUser(string username, int plantId): base(username)
+        {
+            PlantId = plantId;
+        }
     }
 }
