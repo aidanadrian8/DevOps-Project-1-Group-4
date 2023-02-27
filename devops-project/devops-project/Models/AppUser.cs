@@ -12,5 +12,9 @@ namespace devops_project.Models
         {
             PlantId = plantId;
         }
+
+        public AppUser() {
+            
+        }
     }
 }

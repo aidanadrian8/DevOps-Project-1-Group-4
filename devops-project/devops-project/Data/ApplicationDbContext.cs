@@ -11,6 +11,10 @@ namespace devops_project.Data
         {
 
         }
+        
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> contextOptions) : base(contextOptions) {
+            
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
