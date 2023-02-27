@@ -1,8 +1,6 @@
 .DS_Store
 .vs/*
 .vscode/*
-devops-project/.vs/*
-devops-project/devops-project/bin/*
-devops-project/devops-project/obj/*
-devops-project/devops-project/appsettings.json
+devops-project/appsettings.json
 node_modules
+appsettings.json
