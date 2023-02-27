@@ -39,7 +39,7 @@
 
             @if (User?.Identity.IsAuthenticated == true)
             {
-                <form id="logoutForm" method="post" class="form-inline" asp-controller="Account" asp-action="LogOff">
+                <form id="logoutForm" method="post" class="form-inline sidebar-item" asp-controller="Account" asp-action="LogOff">
                     <button type="submit" class="btn btn-primary">Log Out</button>
                 </form>
             }
