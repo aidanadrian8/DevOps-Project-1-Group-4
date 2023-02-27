@@ -21,24 +21,6 @@ jobs:
         with:
           dotnet-version: '7.x'
           include-prerelease: true
-      
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-            node-version: '12.x'
-
-      - name: Hack the mainframe
-        run: cd /home/runner/work/DevOps-Project-1-Group-4/DevOps-Project-1-Group-4/devops-project/wwwroot
-
-      - name: Install dependencies
-        run: npm init
-
-      - name: idkDOOD
-        run: npm ci
-
-      - name: Run home like a little baby
-        run: cd
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
