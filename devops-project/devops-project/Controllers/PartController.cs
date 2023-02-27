@@ -30,16 +30,21 @@ namespace devops_project.Controllers
         // POST: PartController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create(IFormCollection collection)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                var part = new Part(int.Parse(collection["plantId"]), collection["sku"], collection["name"], collection["specs"], Decimal.Parse(collection["salePrice"]), Decimal.Parse(collection["manufacturingPrice"]), collection["imagePath"]);
+                var result = dbContext.Part.AddAsync(part);
+
+                if (result.IsCompletedSuccessfully)
+                {
+                    dbContext.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(collection);
         }
 
         // GET: PartController/Edit/5
