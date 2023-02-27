@@ -8,7 +8,7 @@ namespace devops_project.Models
         [ForeignKey("Plant")]
         public int PlantId { get; set; }
 
-        public AppUser(string username, int plantId): base(username)
+        public AppUser(string Username, int plantId): base(Username)
         {
             PlantId = plantId;
         }

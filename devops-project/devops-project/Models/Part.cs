@@ -51,5 +51,9 @@ namespace devops_project.Models
             ManufacturingPrice = manufacturingPrice;
             ImagePath = imagePath;
         }
+
+        public Part() {
+            
+        }
     }
 }
