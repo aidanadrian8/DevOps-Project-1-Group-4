@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "chartjs": "^0.3.24",
-    "gridstack": "^7.2.3"
-  }
-}

@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<link href="~/node_modules/gridstack/dist/gridstack.min.css" rel="stylesheet"/>
+
+<div class="">
+    <h1 class="display-4">Dashboard</h1>
+    <a onClick="grid.removeAll()" class="btn btn-primary" href="#">Clear</a>
+    <a onClick="addWidget()" class="btn btn-primary" href="#">Add Widget</a>
+    <a onClick="saveLayout()" class="btn btn-primary" href="#">Save Layout</a>
+    <div class="grid-stack shadow-lg"></div>
+
+</div>
+
+<script src="~/node_modules/gridstack/dist/gridstack-all.js"></script>
+<script src="~/js/dashboard/dashboard.js"></script>
+
