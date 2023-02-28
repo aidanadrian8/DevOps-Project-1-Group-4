@@ -1,0 +1,15 @@
+﻿@using devops_project.Data;
+@inject ApplicationDbContext dbContext;
+
+<h1>Plants</h1>
+
+@foreach(Plant plant in dbContext.Plant.ToList()){
+        <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">@plant.Name</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@plant.Location</h6>
+        <a href="#" class="card-link">Edit</a>
+        <a asp-controller="Plant" asp-action="Delete" class="card-link">Delete</a>
+      </div>
+    </div>
+}
